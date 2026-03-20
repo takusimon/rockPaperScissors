@@ -1,45 +1,58 @@
-function getHumanChoice() {
-    // function returns humans choice
-    // create a variable to store user input
-    let userInput;
-    // give user a choice store in userInput
-    userInput = prompt('Choose: rock, paper or scissors? ').toLowerCase();
-    return userInput;
-}
+// FUNCTION getHumanChoice ()
+    //asks the users for their choice and then return that choice
+        //INITIALIZE varChoice
+        //GET choice (rock,paper,scissors),SET varChoice
+        //RETURN varChoice
+// END FUNCTION
 
-function getComputerChoice(){
-    // functions returns computers choice
-    // create variable to store computers options
-    let computerOptions = ["rock","paper","scissors"];
-    // computer randomly selects a value
-    let i = Math.floor(Math.random() * computerOptions.length);
-    let computerChoice = computerOptions[i];
-    return computerChoice;
-}
- // create variable to score userScore
- let humanScore = 0;
- // create a variable to store computers score
- let computerScore = 0;
- 
- function playRound (humanChoice,computerChoice) {
-// Compare users value & computers value 
-if (humanChoice === computerChoice) {
-    return "Draw";
-} else if (humanChoice ==="rock" && computerChoice === "scissors") {
-    ++humanScore;
-    return "You Win!";
-} else if (humanChoice === "paper" && computerChoice === "rock") {
-    ++humanScore;
-    return "You Win!";
-} else if (humanChoice === "scissors" && computerChoice === "paper") {
-    ++humanScore;
-    return "You Win!";
-} else { 
-    ++computerScore;
-    return "You Lose";
-}
- }
+// FUNCTION getComputerChoice ()
+    // returns the computers choice randomly selected
+        // SET computerOptions as [rock,paper,scissors]
+        //INITIALIZE variable computerChoice
+        //RAND SELECT computerOPtions,SET computerChoice 
+        // RETURN computerChoice
+// END FUNCTION
 
- console.log(playRound(getComputerChoice(),getHumanChoice()));
- console.log(`Computer: ${computerScore}`);
- console.log(`Human: ${humanScore}`);
+// FUNCTION playGame (rounds)
+    //INITIALIZE humanScore = 0
+    //INITIALIZE computerScore = 0
+    //FUNCTION playRound(humanChoice, computerChoice)
+        //IF humanChoice == computerChoice THEN
+            //PRINT "Draw"
+        //ELSE IF humanChoice == "rock" AND computerChoice == "scissors" THEN
+            // humanScore ++
+            //PRINT "User wins this round"
+        //ELSE IF humanChoice == "paper" AND computerChoice == "rock" THEN
+            // humanScore ++
+            //PRINT "User wins this round"
+        //ELSE IF humanChoice == "scissors" AND computerChoice == "paper" THEN
+            // humanScore ++
+            //PRINT "User wins this round"
+        //ELSE
+            //computerScore ++
+            //PRINT "Computer wins this round"
+        //END IF
+    //END FUNCTION
+
+    //FOR I <= rounds
+        //SET humanChoice = CALL getHumanChoice()
+        //SET computerChoice = CALL getComputer()
+        //CALL playRound(humanChoice,computerChoice)
+    //END FOR
+
+    // IF humanScore == computerScore THEN
+        //PRINT "It's a Draw no winner"
+    // ELSE IF humanScore > computerScore THEN
+        //PRINT "USER wins!"
+    //ELSE
+        //PRINT "Computer wins!"
+    //END IF
+//END FUNCTION
+
+//CALL playRound(x)
+
+
+
+   
+    
+    
