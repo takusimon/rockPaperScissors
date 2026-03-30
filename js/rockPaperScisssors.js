@@ -46,13 +46,35 @@ function playRound(humanChoice, computerChoice){
     }
 //END FUNCTION
 };
-function winner (outcome) {
+function roundWinner (outcome) {
     if (outcome === "HUMAN") {
         humanScore ++;
+        roundOutcome.textContent = `User wins +1 point to User`;
+        resultDiv.appendChild(roundOutcome)
     } else if (outcome === "COMPUTER") {
         computerScore ++;
+       roundOutcome.textContent = 'Computer wins +1 point to Computer';
+       resultDiv.appendChild(roundOutcome);
+    } else {
+        roundOutcome.textContent = "It's a Draw no points given";
+        resultDiv.appendChild(roundOutcome);
     }
-}
+};
+
+function checkWinner(){
+    if (humanScore >= 5) {
+        roundOutcome.textContent = "The user has won the Game!";
+        resultDiv.appendChild(roundOutcome);
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore >= 5) {
+        roundOutcome.textContent = "The computer has won the Game!";
+        resultDiv.appendChild(roundOutcome);
+        humanScore = 0;
+        computerScore = 0;
+    }
+};
+
 function updateDisplay() {
     humanDisplayedScore.textContent = `Human: ${humanScore}`;
     computerDisplayedScore.textContent = `Computer: ${computerScore}`;
@@ -61,26 +83,30 @@ const resultDiv = document.querySelector('.results')
 const userChoiceRock = document.querySelector(".rock");
 userChoiceRock.addEventListener('click',() => {
    const result = playRound('rock',getComputerChoice());
-   winner(result);
+   roundWinner(result);
    updateDisplay();
+   checkWinner();
 });
 
 const userChoicePaper = document.querySelector('.paper');
 userChoicePaper.addEventListener('click', () => {
     const result = playRound('paper',getComputerChoice());
-    winner(result);
+    roundWinner(result);
     updateDisplay();
+    checkWinner();
 });
 
 const userChoiceScissors = document.querySelector('.scissors');
 userChoiceScissors.addEventListener('click', () => {
     const result = playRound('scissors',getComputerChoice());
-    winner(result);
+    roundWinner(result);
     updateDisplay()
+    checkWinner();
 })
 
 const computerDisplayedScore = document.createElement('p');
 const humanDisplayedScore = document.createElement('p');
+const roundOutcome = document.createElement('p');
 resultDiv.appendChild(computerDisplayedScore);
 resultDiv.appendChild(humanDisplayedScore);
 
